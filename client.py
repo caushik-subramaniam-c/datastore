@@ -24,7 +24,7 @@ class App:
             return 0
 
 app = App()
-print("Simple Auth App")
+print("Simple Auth App using data store")
 case = input("\na. Sign up / b. Log in [a/B]? ")
 
 if case == 'a':
