@@ -51,6 +51,11 @@ class TestForCreate:
         key, value, ttl = "1", {"a": 1}, 10
         assert store.create(key, value, ttl) == None
         store.delete("1")
+    def test_nine(self):
+        store = Store("./test.json")
+        key, value, ttl = "1", {"a": 1}, "10"
+        with pytest.raises(TypeError):
+            store.create(key, value, ttl)
 
 class TestForRead:
     def test_one(self):
@@ -101,3 +106,7 @@ class TestForDelete:
         store = Store("./test.json")
         with pytest.raises(KeyError):
             store.delete("k")
+
+def test_filename():
+    with pytest.raises(TypeError):
+        store = Store("./test.py")
